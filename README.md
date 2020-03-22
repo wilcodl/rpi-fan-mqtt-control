@@ -36,11 +36,21 @@ fan:
       - high
 ```
 
-# TESTING
+# RUN
 
+```shell
+python3 ./rpi-fan-mqtt-control/fan-mqtt.py [mqtt-broker-ip]
+```
+
+# MQTT TESTING
+
+https://mosquitto.org/download/
+
+```shell
 cd "c:\Program Files\mosquitto"
 
 mosquitto_sub -h [mqtt-broker-ip] -t ha/fan/forced_ventilation/on/state -C 1
+```
 
 # TODO
 
