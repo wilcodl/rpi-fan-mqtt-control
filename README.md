@@ -7,7 +7,26 @@ Python deamon for Raspberry Pi that controls a fan by a relay board through MQTT
 Install the required Python modules
 
 ```shell
-sudo apt install python3-paho-mqtt python3-rpi.gpio
+sudo apt install python3-paho-mqtt python3-rpi.gpio python3-yaml
+```
+
+Clone the repository
+
+```shell
+sudo apt install git
+git clone https://github.com/wilcodl/rpi-fan-mqtt-control.git
+```
+
+Create and edit the config file
+```shell
+cd rpi-fan-mqtt-control
+cp config-example.yml config.yml
+vi config.yml
+```
+
+Make file executable
+```shell
+chmod +x fan-*
 ```
 
 ### Home Assistant
@@ -38,8 +57,16 @@ fan:
 
 # RUN
 
+Test version:
+
 ```shell
-python3 ./rpi-fan-mqtt-control/fan-mqtt.py [mqtt-broker-ip]
+./fan-manual.py
+```
+
+MQTT version:
+
+```shell
+./fan-mqtt.py
 ```
 
 # MQTT TESTING
@@ -49,7 +76,7 @@ https://mosquitto.org/download/
 ```shell
 cd "c:\Program Files\mosquitto"
 
-mosquitto_sub -h [mqtt-broker-ip] -t ha/fan/forced_ventilation/on/state -C 1
+.\mosquitto_pub.exe -h [mqtt-broker-ip] -t ha/fan/forced_ventilation/on/set -m true
 ```
 
 # TODO

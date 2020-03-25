@@ -1,0 +1,8 @@
+pinout:
+  PIN1: 37 # On / Off
+  PIN2: 38 # Medium
+  PIN3: 40 # High
+
+mqtt:
+  host: [mqtt-broker-ip]
+  topic_prefix: "ha/fan/forced_ventilation"

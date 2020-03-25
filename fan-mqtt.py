@@ -5,19 +5,24 @@ import paho.mqtt.publish as mqttpub
 import paho.mqtt.subscribe as mqttsub
 import time
 import sys
+import yaml
 
-PIN1 = 11 # On / Off
-PIN2 = 12 # Medium
-PIN3 = 13 # High
+with open("config.yml", 'r') as ymlfile:
+	cfg = yaml.load(ymlfile)
+
+PIN1 = cfg['pinout']['PIN1'] # On / Off
+PIN2 = cfg['pinout']['PIN2'] # Medium
+PIN3 = cfg['pinout']['PIN3'] # High
+
 ON = False
 OFF = True
 
-MQTT_HOST			= sys.argv[1]
-MQTT_SPEED_TOPIC	= "ha/fan/forced_ventilation/speed/state"
-MQTT_ON_TOPIC		= "ha/fan/forced_ventilation/on/state"
-MQTT_TOPIC_FILTER	= "ha/fan/forced_ventilation/#"
-MQTT_ON_SET			= 'ha/fan/forced_ventilation/on/set'
-MQTT_SPEED_SET		= 'ha/fan/forced_ventilation/speed/set'
+MQTT_HOST			= cfg['mqtt']['host']
+MQTT_SPEED_TOPIC	= cfg['mqtt']['topic_prefix'] + "/speed/state"
+MQTT_ON_TOPIC		= cfg['mqtt']['topic_prefix'] + "/on/state"
+MQTT_TOPIC_FILTER	= cfg['mqtt']['topic_prefix'] + "/#"
+MQTT_ON_SET			= cfg['mqtt']['topic_prefix'] + '/on/set'
+MQTT_SPEED_SET		= cfg['mqtt']['topic_prefix'] + '/speed/set'
 
 def change_fan(client, userdata, message):
 	if message.topic == MQTT_ON_SET:
