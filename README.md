@@ -73,6 +73,7 @@ Start MQTT deamon with log file:
 
 ```shell
 python3 -u fan-mqtt.py > fan-mqtt.log &
+watch cat fan-mqtt.log
 ```
 
 # MQTT TESTING
