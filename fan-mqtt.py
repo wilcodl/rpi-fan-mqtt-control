@@ -70,6 +70,8 @@ def change_fan(client, userdata, message):
 
 		time.sleep(0.1)
 
+print("rPi Fan MQTT Control v0.1")
+
 GPIO.setmode(GPIO.BOARD)
 
 GPIO.setup(PIN1, GPIO.OUT, initial=GPIO.HIGH)

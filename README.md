@@ -69,6 +69,12 @@ MQTT version:
 ./fan-mqtt.py
 ```
 
+Start MQTT deamon with log file:
+
+```shell
+python3 -u fan-mqtt.py > fan-mqtt.log &
+```
+
 # MQTT TESTING
 
 https://mosquitto.org/download/
