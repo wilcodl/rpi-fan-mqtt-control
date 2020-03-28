@@ -55,6 +55,10 @@ fan:
       - high
 ```
 
+### Physical installation
+
+![rPi-relay-fan](https://raw.githubusercontent.com/wilcodl/rpi-fan-mqtt-control/master/IMG_20200328_215258.jpg)
+
 # RUN
 
 Test version:
