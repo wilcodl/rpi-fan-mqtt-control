@@ -26,22 +26,22 @@ try:
 
 		if mode == '0':
 			print('Off')
-			GPIO.output(PIN1, OFF)
+			GPIO.output(PIN1, ON)
 			GPIO.output(PIN2, OFF)
 			GPIO.output(PIN3, OFF)
 		elif mode == '1':
 			print('Low')
-			GPIO.output(PIN1, ON)
+			GPIO.output(PIN1, OFF)
 			GPIO.output(PIN2, OFF)
 			GPIO.output(PIN3, OFF)
 		elif mode == '2':
 			print('Medium')
-			GPIO.output(PIN1, ON)
+			GPIO.output(PIN1, OFF)
 			GPIO.output(PIN2, ON)
 			GPIO.output(PIN3, OFF)
 		elif mode == '3':
 			print('High')
-			GPIO.output(PIN1, ON)
+			GPIO.output(PIN1, OFF)
 			GPIO.output(PIN2, OFF)
 			GPIO.output(PIN3, ON)
 		elif mode == 'q':

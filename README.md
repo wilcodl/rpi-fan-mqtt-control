@@ -88,6 +88,7 @@ cd "c:\Program Files\mosquitto"
 
 # TODO
 
-- [ ]   better documentation
+- [x]   better documentation
 - [ ]   better error handling
-- [ ]   fan at low speed when script or rpi fails
+- [x]   improve log
+- [x]   fan at low speed when script or rpi fails

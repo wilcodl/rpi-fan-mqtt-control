@@ -35,12 +35,12 @@ def change_fan(client, userdata, message):
 
 		if value == 'false':
 			log('Off')
-			GPIO.output(PIN1, OFF)
+			GPIO.output(PIN1, ON)
 
 			mqttpub.single(MQTT_ON_TOPIC, "false", hostname=MQTT_HOST)
 		elif value == 'true':
 			log('On')
-			GPIO.output(PIN1, ON)
+			GPIO.output(PIN1, OFF)
 
 			mqttpub.single(MQTT_ON_TOPIC, "true", hostname=MQTT_HOST)
 		else:
@@ -74,7 +74,10 @@ def change_fan(client, userdata, message):
 
 		time.sleep(0.1)
 
-print("rPi Fan MQTT Control v0.1\n")
+print("rPi Fan MQTT Control v1.0\n")
+
+print("MQTT broker: " + MQTT_HOST)
+print("MQTT topic prefix: " + cfg['mqtt']['topic_prefix'] + "\n")
 
 GPIO.setmode(GPIO.BOARD)
 
@@ -82,7 +85,7 @@ GPIO.setup(PIN1, GPIO.OUT, initial=GPIO.HIGH)
 GPIO.setup(PIN2, GPIO.OUT, initial=GPIO.HIGH)
 GPIO.setup(PIN3, GPIO.OUT, initial=GPIO.HIGH)
 
-mqttpub.single(MQTT_ON_TOPIC, "false", hostname=MQTT_HOST)
+mqttpub.single(MQTT_ON_TOPIC, "true", hostname=MQTT_HOST)
 mqttpub.single(MQTT_SPEED_TOPIC, "low", hostname=MQTT_HOST)
 
 try:
@@ -95,6 +98,6 @@ except:
 	print("\nOther error or exception occurred!")
   
 finally:
-	mqttpub.single(MQTT_ON_TOPIC, "false", hostname=MQTT_HOST)
+	mqttpub.single(MQTT_ON_TOPIC, "true", hostname=MQTT_HOST)
 	mqttpub.single(MQTT_SPEED_TOPIC, "low", hostname=MQTT_HOST)
 	GPIO.cleanup()
