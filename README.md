@@ -21,13 +21,3 @@ vi config.yml
 ```shell
 ./fan-mqtt.py
 ```
-
-# MQTT TESTING
-
-https://mosquitto.org/download/
-
-```shell
-cd "c:\Program Files\mosquitto"
-
-.\mosquitto_pub.exe -h [mqtt-broker-ip] -t ha/fan/forced_ventilation/on/set -m true
-```
