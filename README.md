@@ -19,5 +19,5 @@ vi config.yml
 # RUN
 
 ```shell
-./fan-mqtt.py
+python3 fan-mqtt.py
 ```
