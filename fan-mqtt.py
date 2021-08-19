@@ -7,8 +7,12 @@ import time
 import sys
 import yaml
 import datetime
+import os
 
-with open("config.yml", 'r') as ymlfile:
+dir_path = os.path.dirname(os.path.realpath(__file__))
+log_path = dir_path + "/config.yml"
+
+with open(log_path, 'r') as ymlfile:
 	cfg = yaml.load(ymlfile)
 
 PIN1 = cfg['pinout']['PIN1'] # On / Off

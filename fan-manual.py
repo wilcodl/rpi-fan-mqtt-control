@@ -53,7 +53,6 @@ except KeyboardInterrupt:
 	print("\nKeyboardInterrupt")
   
 except:
-	print("Other error or exception occurred!")
-  
+	print("Unexpected error:", sys.exc_info()[0]) 
 finally:
 	GPIO.cleanup()
